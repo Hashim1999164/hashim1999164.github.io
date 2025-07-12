@@ -336,7 +336,7 @@ func developApp() -> BankingApplication {
       I'm always open to discussing new opportunities, interesting projects, or just having a chat about iOS development and FinTech solutions.
     </p>
     
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
       <a href="https://www.linkedin.com/in/hashim-khan-953180175/" style="text-decoration: none;">
         <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" width="150" />
       </a>
@@ -346,13 +346,13 @@ func developApp() -> BankingApplication {
       <a href="https://api.whatsapp.com/send?phone=923145201562&text=Hi%20Hashim%2C%20I%20saw%20your%20profile%20and%20would%20like%20to%20connect!" style="text-decoration: none;">
         <img src="https://img.shields.io/badge/WhatsApp_Me-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" width="150" />
       </a>
-    </div>
+  </div>
     
-    <div style="text-align: center; margin-top: 1rem;">
+  <div style="text-align: center; margin-top: 1rem;">
       <p><strong>📍 Location:</strong> Rawalpindi, Pakistan</p>
       <p><strong>📧 Email:</strong> sardarhashim30@gmail.com</p>
       <p><strong>📱 Phone:</strong> +923145201562</p>
-    </div>
+  </div>
   </div>
 </div>
 
