@@ -343,21 +343,110 @@
                 position: relative;
                 border-right: none;
                 border-bottom: 1px solid var(--glass-border);
-                padding: 2rem;
+                padding: 1.5rem;
             }
             .main-content {
                 margin-left: 0;
-                padding: 1.5rem;
+                padding: 1rem;
             }
             .nav-sidebar {
                 display: none;
             }
             .profile-pic-main {
-                width: 180px;
-                height: 180px;
+                width: 150px;
+                height: 150px;
+            }
+            .profile-pic-sidebar {
+                width: 100px;
+                height: 100px;
             }
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            .download-button, .contact-button {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+            .service-card {
+                height: auto;
+                min-height: 250px;
+            }
+            .contact-info p {
+                font-size: 0.85rem;
+            }
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+                padding: 0.5rem;
+            }
+            .theme-toggle i {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                padding: 1rem;
+            }
+            .main-content {
+                padding: 0.75rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .profile-pic-sidebar {
+                width: 80px;
+                height: 80px;
+            }
+            .download-button, .contact-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+            .card {
+                padding: 1rem;
+            }
+            .contact-info p {
+                font-size: 0.8rem;
+            }
+            .social-icon {
+                font-size: 1rem;
+            }
+            .theme-toggle {
+                top: 0.5rem;
+                right: 0.5rem;
+                padding: 0.4rem;
+            }
+            .theme-toggle i {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .sidebar {
+                padding: 0.75rem;
+            }
+            .main-content {
+                padding: 0.5rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .profile-pic-sidebar {
+                width: 70px;
+                height: 70px;
+            }
+            .download-button, .contact-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            .card {
+                padding: 0.75rem;
+            }
+            .contact-info p {
+                font-size: 0.75rem;
             }
         }
 
