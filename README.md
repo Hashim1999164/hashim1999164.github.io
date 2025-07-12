@@ -336,23 +336,65 @@ func developApp() -> BankingApplication {
       I'm always open to discussing new opportunities, interesting projects, or just having a chat about iOS development and FinTech solutions.
     </p>
     
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
-      <a href="https://www.linkedin.com/in/hashim-khan-953180175/" style="text-decoration: none;">
-        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" width="150" />
-      </a>
-      <a href="mailto:sardarhashim30@gmail.com" style="text-decoration: none;">
-        <img src="https://img.shields.io/badge/Email_Me-D14836?style=for-the-badge&logo=gmail&logoColor=white" width="150" />
-      </a>
-      <a href="https://api.whatsapp.com/send?phone=923145201562&text=Hi%20Hashim%2C%20I%20saw%20your%20profile%20and%20would%20like%20to%20connect!" style="text-decoration: none;">
-        <img src="https://img.shields.io/badge/WhatsApp_Me-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" width="150" />
-      </a>
-  </div>
+    <!-- Contact Form -->
+    <form action="https://formspree.io/f/xwpbggej" method="POST" style="text-align: left;">
+      <div style="margin-bottom: 1.5rem;">
+        <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Name</label>
+        <input type="text" id="name" name="name" required 
+               style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem;"
+               placeholder="Your Name">
+      </div>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Email</label>
+        <input type="email" id="email" name="email" required 
+               style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem;"
+               placeholder="Your Email">
+      </div>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Subject</label>
+        <input type="text" id="subject" name="subject" required 
+               style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem;"
+               placeholder="Subject">
+      </div>
+      
+      <div style="margin-bottom: 1.5rem;">
+        <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Message</label>
+        <textarea id="message" name="message" rows="6" required 
+                  style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; resize: vertical;"
+                  placeholder="Your Message"></textarea>
+      </div>
+      
+      <div style="text-align: center;">
+        <button type="submit" 
+                style="background: linear-gradient(135deg, #4EA8DE 0%, #3B82F6 100%); color: white; padding: 1rem 2rem; border-radius: 50px; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(78, 168, 222, 0.3); transition: all 0.3s ease;">
+          Send Message
+        </button>
+      </div>
+    </form>
     
-  <div style="text-align: center; margin-top: 1rem;">
-      <p><strong>📍 Location:</strong> Rawalpindi, Pakistan</p>
-      <p><strong>📧 Email:</strong> sardarhashim30@gmail.com</p>
-      <p><strong>📱 Phone:</strong> +923145201562</p>
-  </div>
+  <!-- Contact Info -->
+  <div style="margin-top: 2rem; text-align: center;">
+      <h3 style="margin-bottom: 1rem;">📞 Quick Contact</h3>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
+        <a href="https://www.linkedin.com/in/hashim-khan-953180175/" style="text-decoration: none;">
+          <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" width="150" />
+        </a>
+        <a href="mailto:sardarhashim30@gmail.com" style="text-decoration: none;">
+          <img src="https://img.shields.io/badge/Email_Me-D14836?style=for-the-badge&logo=gmail&logoColor=white" width="150" />
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=923145201562&text=Hi%20Hashim%2C%20I%20saw%20your%20profile%20and%20would%20like%20to%20connect!" style="text-decoration: none;">
+          <img src="https://img.shields.io/badge/WhatsApp_Me-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" width="150" />
+        </a>
+    </div>
+      
+  <div style="text-align: center;">
+        <p><strong>📍 Location:</strong> Rawalpindi, Pakistan</p>
+        <p><strong>📧 Email:</strong> sardarhashim30@gmail.com</p>
+        <p><strong>📱 Phone:</strong> +923145201562</p>
+    </div>
+    </div>
   </div>
 </div>
 
