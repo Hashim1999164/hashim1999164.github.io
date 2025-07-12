@@ -39,45 +39,46 @@
   <div style="display: flex; flex-direction: column; align-items: center; max-width: 100%;">
     
     <!-- Professional Summary -->
-    <div style="width: 100%; max-width: 800px; margin-bottom: 2rem;">
-      <h2 align="center">🚀 Professional Summary</h2>
-      <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: center;">
-        <p><strong>Senior iOS Engineer</strong> specializing in <strong>FinTech and banking applications</strong> with 3+ years of experience developing secure, high-performance mobile solutions. Proven track record of delivering complex financial applications used by thousands of customers.</p>
-        <ul style="text-align: left; display: inline-block;">
-          <li>💼 Currently at <strong>Aion Digital</strong> (Remote)</li>
-          <li>🏦 Banking apps specialist with deep financial domain expertise</li>
-          <li>🛠️ Full-stack capabilities (iOS, Android, Backend)</li>
-          <li>🏆 5+ production apps on App Store</li>
-          <li>📦 Published multiple SDKs on CocoaPods</li>
-        </ul>
-      </div>
-    </div>
+<div style="width: 100%; max-width: 800px; margin-bottom: 2rem;">
+ <h2 align="center">🚀 Professional Summary</h2>
+ <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: center;">
+  <p><strong>Senior iOS Engineer</strong> specializing in <strong>FinTech and banking applications</strong> with 3+ years of experience developing secure, high-performance mobile solutions. Proven track record of delivering complex financial applications used by thousands of customers.</p>
+   <ul style="text-align: left; display: inline-block;">
+   <li>💼 Currently at <strong>Aion Digital</strong> (Remote)</li>
+  <li>🏦 Banking apps specialist with deep financial domain expertise</li>
+<li>🛠️ Full-stack capabilities (iOS, Android, Backend)</li>
+<li>🏆 5+ production apps on App Store</li>
+  <li>📦 Published multiple SDKs on CocoaPods</li>
+  </ul>
+  </div>
+  </div>
 
-    <!-- Core Expertise -->
-    <div style="width: 100%; max-width: 800px; margin-bottom: 2rem;">
-      <h2 align="center">🏆 Core Expertise</h2>
-      <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: center;">
-        <pre><code>
-struct BankingApplication {
-  let name: String
-  let features: [String]
-  let secure: Bool
-}
-
-struct iOSBankingDeveloper {
-    let name = "Hashim Khan"
-    let specialization = "FinTech Solutions"
-    let architectures = ["Clean Swift", "MVVM", "VIPER"]
-    let techStack = ["Swift", "UIKit", "Combine", "CoreData"]
-    let security = ["OAuth2", "Biometrics", "SSL Pinning"]
-    
-    func developApp() -> BankingApplication {
-        return BankingApplication(
-            name: "SecureBank",
-            features: architectures + techStack + security,
-            secure: true)
+  <!-- Core Expertise -->
+  <div style="width: 100%; max-width: 800px; margin-bottom: 2rem;">
+  <h2 align="center">🏆 Core Expertise</h2>
+  <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: center;">
+    <pre><code>
+      
+    struct BankingApplication {
+      let name: String
+      let features: [String]
+      let secure: Bool
     }
-}
+    
+    struct iOSBankingDeveloper {
+        let name = "Hashim Khan"
+        let specialization = "FinTech Solutions"
+        let architectures = ["Clean Swift", "MVVM", "VIPER"]
+        let techStack = ["Swift", "UIKit", "Combine", "CoreData"]
+        let security = ["OAuth2", "Biometrics", "SSL Pinning"]
+        
+        func developApp() -> BankingApplication {
+            return BankingApplication(
+                name: "SecureBank",
+                features: architectures + techStack + security,
+                secure: true)
+        }
+    }
 
 func developApp() -> BankingApplication {
     let developer = iOSBankingDeveloper()
@@ -154,7 +155,7 @@ func developApp() -> BankingApplication {
       <img src="https://img.shields.io/badge/CocoaPods-EE3322?style=for-the-badge&logo=cocoapods&logoColor=white" />
     </div>
 
-    <h3 align="center">🏗 Architecture & Patterns</h3>
+  <h3 align="center">🏗 Architecture & Patterns</h3>
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem;">
       <img src="https://img.shields.io/badge/Clean_Swift-FF6B6B?style=for-the-badge" />
       <img src="https://img.shields.io/badge/MVVM-8E44AD?style=for-the-badge" />
@@ -162,7 +163,7 @@ func developApp() -> BankingApplication {
       <img src="https://img.shields.io/badge/SOLID-27AE60?style=for-the-badge" />
     </div>
 
-    <h3 align="center">🔒 Security & Testing</h3>
+  <h3 align="center">🔒 Security & Testing</h3>
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;">
       <img src="https://img.shields.io/badge/OAuth2-000000?style=for-the-badge&logo=oauth&logoColor=white" />
       <img src="https://img.shields.io/badge/Biometrics-8A2BE2?style=for-the-badge" />
@@ -179,7 +180,7 @@ func developApp() -> BankingApplication {
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto;">
     
     <!-- VisionBank Mobile -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
+  <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
       <h3 align="center">👁️ VisionBank Mobile</h3>
       <div align="center" style="margin-bottom: 1rem;">
         <a href="https://apps.apple.com/ru/app/vision-bank-mobile-app/id6503427436?l=en-GB">
@@ -195,7 +196,7 @@ func developApp() -> BankingApplication {
     </div>
 
     <!-- FriendiPay Oman -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
+  <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
       <h3 align="center">💳 FriendiPay Oman</h3>
       <div align="center" style="margin-bottom: 1rem;">
         <a href="https://apps.apple.com/us/app/friendi-pay-oman/id6738409222?uo=2">
@@ -211,7 +212,7 @@ func developApp() -> BankingApplication {
     </div>
 
     <!-- KFH Jazeel Banking -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
+  <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
       <h3 align="center">🏦 KFH Jazeel Banking (Bahrain Retail)</h3>
       <div align="center" style="margin-bottom: 1rem;">
         <a href="https://apps.apple.com/tj/app/kfh-jazeel-banking/id1369601727">
@@ -227,7 +228,7 @@ func developApp() -> BankingApplication {
     </div>
 
     <!-- KFHB Corporate -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
+  <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
       <h3 align="center">🏢 KFHB Corporate (Bahrain)</h3>
       <div align="center" style="margin-bottom: 1rem;">
         <a href="https://apps.apple.com/tj/app/kfhb-corporate/id1560148757">
@@ -243,7 +244,7 @@ func developApp() -> BankingApplication {
     </div>
 
     <!-- JS Bank Bahrain -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
+  <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
       <h3 align="center">🌐 JS Bank Bahrain</h3>
       <div align="center" style="margin-bottom: 1rem;">
         <a href="https://apps.apple.com/us/app/js-bahrain/id6741843878">
@@ -259,7 +260,7 @@ func developApp() -> BankingApplication {
     </div>
 
     <!-- MySmile App -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
+   <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
       <h3 align="center">😊 MySmile App</h3>
       <div align="center" style="margin-bottom: 1rem;">
         <a href="https://apps.apple.com/ng/app/mysmile-app/id1514500366">
@@ -275,7 +276,7 @@ func developApp() -> BankingApplication {
     </div>
 
     <!-- KFH Kuwait Retail -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
+  <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
       <h3 align="center">🏦 KFH Kuwait Retail</h3>
       <ul>
         <li>Retail banking application</li>
@@ -286,7 +287,7 @@ func developApp() -> BankingApplication {
     </div>
 
     <!-- KFH Kuwait Corporate -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
+  <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
       <h3 align="center">🏢 KFH Kuwait Corporate</h3>
       <ul>
         <li>Corporate banking application</li>
@@ -297,7 +298,7 @@ func developApp() -> BankingApplication {
     </div>
 
     <!-- Boubyan Bank SDK -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
+   <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
       <h3 align="center">📦 Boubyan Bank Onboarding SDK</h3>
       <ul>
         <li>Onboarding SDK</li>
@@ -308,7 +309,7 @@ func developApp() -> BankingApplication {
     </div>
 
     <!-- VerifApp SDK -->
-    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
+  <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: left;">
       <h3 align="center">📱 VerifApp SDK</h3>
       <ul>
         <li>Phone number verification</li>
