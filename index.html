@@ -337,28 +337,36 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                align-items: center;
+            }
             .sidebar {
                 width: 100%;
                 height: auto;
                 position: relative;
                 border-right: none;
                 border-bottom: 1px solid var(--glass-border);
-                padding: 1.5rem;
+                padding: 1rem;
+                min-height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             .main-content {
                 margin-left: 0;
                 padding: 1rem;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             .nav-sidebar {
                 display: none;
             }
-            .profile-pic-main {
-                width: 150px;
-                height: 150px;
-            }
             .profile-pic-sidebar {
-                width: 100px;
-                height: 100px;
+                width: 120px;
+                height: 120px;
             }
             .section-title {
                 font-size: 1.8rem;
@@ -366,16 +374,19 @@
             .download-button, .contact-button {
                 padding: 0.75rem 1.5rem;
                 font-size: 0.9rem;
+                width: 100%;
+                max-width: 200px;
             }
             .card {
                 padding: 1.5rem;
             }
             .service-card {
                 height: auto;
-                min-height: 250px;
+                min-height: 200px;
             }
             .contact-info p {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
+                text-align: center;
             }
             .theme-toggle {
                 top: 1rem;
@@ -385,25 +396,44 @@
             .theme-toggle i {
                 font-size: 1rem;
             }
+            .contact-info {
+                width: 100%;
+                max-width: 300px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .sidebar h1, .sidebar p {
+                text-align: center;
+            }
+            .social-icon {
+                font-size: 1.2rem;
+            }
+            .flex.space-x-6 {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
             .sidebar {
-                padding: 1rem;
+                padding: 0.75rem;
+                align-items: center;
             }
             .main-content {
                 padding: 0.75rem;
+                align-items: center;
             }
             .section-title {
                 font-size: 1.5rem;
             }
             .profile-pic-sidebar {
-                width: 80px;
-                height: 80px;
+                width: 100px;
+                height: 100px;
             }
             .download-button, .contact-button {
                 padding: 0.5rem 1rem;
                 font-size: 0.85rem;
+                max-width: 180px;
             }
             .card {
                 padding: 1rem;
@@ -412,7 +442,13 @@
                 font-size: 0.8rem;
             }
             .social-icon {
-                font-size: 1rem;
+                font-size: 1.1rem;
+            }
+            .flex.space-x-6 {
+                justify-content: center;
+            }
+            .sidebar h1, .sidebar p {
+                text-align: center;
             }
             .theme-toggle {
                 top: 0.5rem;
@@ -426,27 +462,39 @@
 
         @media (max-width: 360px) {
             .sidebar {
-                padding: 0.75rem;
+                padding: 0.5rem;
+                align-items: center;
             }
             .main-content {
                 padding: 0.5rem;
+                align-items: center;
             }
             .section-title {
                 font-size: 1.3rem;
             }
             .profile-pic-sidebar {
-                width: 70px;
-                height: 70px;
+                width: 80px;
+                height: 80px;
             }
             .download-button, .contact-button {
                 padding: 0.4rem 0.8rem;
                 font-size: 0.8rem;
+                max-width: 160px;
             }
             .card {
                 padding: 0.75rem;
             }
             .contact-info p {
                 font-size: 0.75rem;
+            }
+            .social-icon {
+                font-size: 1rem;
+            }
+            .flex.space-x-6 {
+                justify-content: center;
+            }
+            .sidebar h1, .sidebar p {
+                text-align: center;
             }
         }
 
@@ -529,14 +577,14 @@
     <main class="main-content flex-grow">
         <!-- Summary Section -->
         <section id="summary" class="mb-16 fade-in">
-            <div class="flex flex-col items-start">
-                <div class="w-full">
-                    <p class="text-accent-blue font-semibold mb-3 text-lg">Senior Software Engineer (iOS)</p>
-                    <h2 class="text-6xl font-bold mb-6 tracking-tight" style="color: var(--text-primary);">HASHIM KHAN</h2>
-                    <p class="text-gray-300 leading-relaxed mb-8 text-lg">
+            <div class="flex flex-col items-center w-full">
+                <div class="w-full flex flex-col items-center">
+                    <p class="text-accent-blue font-semibold mb-3 text-lg text-center">Senior Software Engineer (iOS)</p>
+                    <h2 class="text-6xl font-bold mb-6 tracking-tight text-center" style="color: var(--text-primary);">HASHIM KHAN</h2>
+                    <p class="text-gray-300 leading-relaxed mb-8 text-lg text-center" style="max-width: 700px;">
                         I am a passionate Senior iOS Developer with over 3 years of experience specializing in iOS application development. I excel in Swift, Clean Swift Architecture, and building enterprise-level iOS applications. My expertise includes banking applications, performance optimization, and App Store deployment. I also have backend development experience to support full-stack iOS solutions. I thrive in Agile environments and enjoy collaborating with cross-functional teams to deliver high-quality, scalable iOS applications.
                     </p>
-                    <div class="flex space-x-6 mb-8">
+                    <div class="flex space-x-6 mb-8 justify-center">
                         <button class="contact-button" onclick="scrollToContact()">Contact</button>
                     </div>
                 </div>
