@@ -57,6 +57,8 @@
   <div style="width: 100%; max-width: 800px; margin-bottom: 2rem;">
   <h2 align="center">🏆 Core Expertise</h2>
   <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1.5rem; text-align: center;">
+    
+    
     <pre><code>
       
     struct BankingApplication {
