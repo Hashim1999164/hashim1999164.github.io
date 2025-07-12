@@ -4,7 +4,7 @@
     <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=5,10,15&height=180&section=header&text=Hashim%20Khan&fontAlignY=40&desc=Senior%20iOS%20Engineer%20|%20FinTech%20Specialist&descAlignY=65&animation=fadeIn&fontColor=ffffff&descColor=ffffff" alt="header" width="100%" />
   </a>
 </div>
- 
+
 <!-- Animated Typing SVG -->
 <div align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=22&duration=3000&pause=1000&color=0a84ff&center=true&vCenter=true&width=800&lines=Hey+there%2C+I'm+Hashim+Khan+%F0%9F%91%8B;Senior+iOS+Developer+%26+Software+Engineer+%F0%9F%92%BB;Crafting+Robust+Mobile+Experiences+%F0%9F%9A%80;Expert+in+Clean+Swift+Architecture+%F0%9F%93%B1;Let's+Connect+and+Build+Something+Great+%F0%9F%9B%A0%EF%B8%8F" alt="Typing SVG" />
@@ -374,8 +374,8 @@ func developApp() -> BankingApplication {
       </div>
     </form>
     
-  <!-- Contact Info -->
-  <div style="margin-top: 2rem; text-align: center;">
+    <!-- Contact Info -->
+    <div style="margin-top: 2rem; text-align: center;">
       <h3 style="margin-bottom: 1rem;">📞 Quick Contact</h3>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
         <a href="https://www.linkedin.com/in/hashim-khan-953180175/" style="text-decoration: none;">
@@ -387,13 +387,13 @@ func developApp() -> BankingApplication {
         <a href="https://api.whatsapp.com/send?phone=923145201562&text=Hi%20Hashim%2C%20I%20saw%20your%20profile%20and%20would%20like%20to%20connect!" style="text-decoration: none;">
           <img src="https://img.shields.io/badge/WhatsApp_Me-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" width="150" />
         </a>
-  </div>
+      </div>
       
-  <div style="text-align: center;">
+      <div style="text-align: center;">
         <p><strong>📍 Location:</strong> Rawalpindi, Pakistan</p>
         <p><strong>📧 Email:</strong> sardarhashim30@gmail.com</p>
         <p><strong>📱 Phone:</strong> +923145201562</p>
-    </div>
+      </div>
     </div>
   </div>
 </div>
