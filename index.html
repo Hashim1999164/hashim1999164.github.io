@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         :root {
             --bg-primary: #0D0D0D;
@@ -533,6 +534,25 @@
                 transform: translateX(0);
             }
         }
+
+        /* Profile Modal Animation */
+        @keyframes scaleIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .animate-scale-in {
+            animation: scaleIn 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+        .profile-pic-modal {
+            width: min(90vw, 90vh, 600px);
+            height: min(90vw, 90vh, 600px);
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 60px rgba(78, 168, 222, 0.5), 0 8px 32px rgba(0,0,0,0.2);
+            border: 8px solid var(--accent-blue);
+            background: var(--bg-secondary);
+            display: block;
+        }
     </style>
 </head>
 <body class="flex">
@@ -545,7 +565,7 @@
     <aside class="sidebar slide-in-left">
         <div class="flex flex-col items-center">
             <div class="relative mb-6">
-                <img src="https://placehold.co/140x140/4EA8DE/E0E0E0?text=Hashim" alt="Hashim Khan" class="profile-pic-sidebar">
+                <img src="self.jpeg" alt="Hashim Khan" class="profile-pic-sidebar" id="profilePicSidebar" style="cursor:pointer;">
             </div>
             <h1 class="text-3xl font-bold mb-2 tracking-tight" style="color: var(--text-primary);">HASHIM KHAN</h1>
             <p class="text-lg mb-6 font-medium" style="color: var(--text-secondary);">Senior Software Engineer (iOS)</p>
@@ -966,6 +986,14 @@
         <a href="#contact" class="nav-sidebar-item" title="Contact"><i class="fas fa-envelope text-xl"></i></a>
     </nav>
 
+    <!-- Profile Fullscreen Modal -->
+    <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden transition-opacity duration-300" style="opacity:0;">
+        <button id="closeProfileModal" class="absolute top-6 left-6 bg-white bg-opacity-80 rounded-full p-2 shadow-lg focus:outline-none">
+            <i class="fas fa-times text-xl text-gray-800"></i>
+        </button>
+        <img src="self.jpeg" alt="Hashim Khan" class="profile-pic-modal animate-scale-in" style="">
+    </div>
+
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1138,6 +1166,33 @@
             element.style.transform = 'translateY(20px)';
             element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             fadeObserver.observe(element);
+        });
+
+        // Profile photo fullscreen modal logic
+        const profilePicSidebar = document.getElementById('profilePicSidebar');
+        const profileModal = document.getElementById('profileModal');
+        const closeProfileModal = document.getElementById('closeProfileModal');
+        let modalOpen = false;
+        
+        function openProfileModal(pushState = true) {
+            profileModal.classList.remove('hidden');
+            setTimeout(() => { profileModal.style.opacity = '1'; }, 10);
+            modalOpen = true;
+            if (pushState) history.pushState({ profileModal: true }, '');
+        }
+        function closeProfileModalFunc(popState = true) {
+            profileModal.style.opacity = '0';
+            setTimeout(() => { profileModal.classList.add('hidden'); }, 300);
+            modalOpen = false;
+            if (popState) history.back();
+        }
+        profilePicSidebar.addEventListener('click', () => openProfileModal());
+        closeProfileModal.addEventListener('click', () => closeProfileModalFunc(false));
+        document.addEventListener('keydown', (e) => {
+            if (modalOpen && (e.key === 'Escape' || e.key === 'Esc')) closeProfileModalFunc();
+        });
+        window.addEventListener('popstate', (e) => {
+            if (modalOpen) closeProfileModalFunc(false);
         });
     </script>
 </body>
