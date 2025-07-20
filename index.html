@@ -1220,11 +1220,20 @@
 
         async function getGeoInfo() {
             try {
-                // Use a free geolocation API (ipapi.co)
-                const res = await fetch('https://ipapi.co/json/');
-                if (!res.ok) throw new Error('Geo API failed');
-                return await res.json();
+                console.log('Fetching geolocation from https://ipinfo.io/json');
+                const res = await fetch('https://ipinfo.io/json');
+                console.log('Geo API response status:', res.status);
+                if (!res.ok) {
+                    const text = await res.text();
+                    console.error('Geo API failed:', res.status, text);
+                    throw new Error('Geo API failed: ' + res.status);
+                }
+                const data = await res.json();
+                console.log('Geo API data:', data);
+                // ipinfo.io returns city and country
+                return { city: data.city, country_name: data.country };
             } catch (e) {
+                console.error('Geo API error:', e);
                 return { city: 'Unknown', country_name: 'Unknown' };
             }
         }
@@ -1242,29 +1251,28 @@
         }
 
         async function handleProfileVisit() {
+            console.log('handleProfileVisit called');
             let visits = parseInt(localStorage.getItem(visitsKey) || '0', 10);
             let logs = [];
             try { logs = JSON.parse(localStorage.getItem(logsKey)) || []; } catch { logs = []; }
 
-            // Check if this user has visited before (sessionStorage for demo)
-            if (!sessionStorage.getItem('visited')) {
-                visits += 1;
-                localStorage.setItem(visitsKey, visits);
-                sessionStorage.setItem('visited', '1');
+            // Always call the API for debugging
+            visits += 1;
+            localStorage.setItem(visitsKey, visits);
+            sessionStorage.setItem('visited', '1');
 
-                // Get geo info and log
-                const geo = await getGeoInfo();
-                const platform = getPlatform();
-                const { date, time } = getNow();
-                logs.push({
-                    city: geo.city || 'Unknown',
-                    country: geo.country_name || 'Unknown',
-                    platform,
-                    date,
-                    time
-                });
-                localStorage.setItem(logsKey, JSON.stringify(logs));
-            }
+            // Get geo info and log
+            const geo = await getGeoInfo();
+            const platform = getPlatform();
+            const { date, time } = getNow();
+            logs.push({
+                city: geo.city || 'Unknown',
+                country: geo.country_name || 'Unknown',
+                platform,
+                date,
+                time
+            });
+            localStorage.setItem(logsKey, JSON.stringify(logs));
             profileVisitsCount.textContent = visits;
         }
         handleProfileVisit();
@@ -1304,6 +1312,8 @@
             }
             accessLogModal.classList.remove('hidden');
             setTimeout(() => { accessLogModal.style.opacity = '1'; }, 10);
+            // Reset clear log buffer when modal opens
+            clearLogBuffer = '';
         }
         function closeAccessLogModalFunc() {
             accessLogModal.style.opacity = '0';
@@ -1315,6 +1325,26 @@
         });
         document.addEventListener('keydown', (e) => {
             if (accessLogModal.style.opacity === '1' && (e.key === 'Escape' || e.key === 'Esc')) closeAccessLogModalFunc();
+        });
+
+        // --- Encrypted Text Detection for Clearing Log ---
+        const clearLogSecret = 'hashimkhan123123';
+        let clearLogBuffer = '';
+        document.addEventListener('keydown', (e) => {
+            if (accessLogModal.style.opacity === '1') {
+                if (e.key.length === 1) {
+                    clearLogBuffer += e.key;
+                    if (clearLogBuffer.length > clearLogSecret.length) {
+                        clearLogBuffer = clearLogBuffer.slice(-clearLogSecret.length);
+                    }
+                    if (clearLogBuffer === clearLogSecret) {
+                        // Clear the log
+                        localStorage.removeItem(logsKey);
+                        accessLogContent.innerHTML = '<p class="text-green-600 text-center font-bold">Access log cleared!</p>';
+                        clearLogBuffer = '';
+                    }
+                }
+            }
         });
     </script>
 </body>
