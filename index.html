@@ -590,7 +590,10 @@
             </div>
             <button class="download-button w-full mb-6" onclick="downloadCV()">Download CV</button>
         </div>
-        <p class="text-gray-500 text-sm">&copy; <span id="currentYear"></span> All rights reserved.</p>
+        <div id="profileVisitsContainer" class="w-full flex justify-center mb-2" style="display:none;">
+            <span class="text-xs text-gray-400">Profile visits: <span id="profileVisitsCount">0</span></span>
+        </div>
+        <p class="text-gray-500 text-sm" id="copyrightText">&copy; <span id="currentYear"></span> All rights reserved.</p>
     </aside>
 
     <!-- Main Content -->
@@ -994,6 +997,21 @@
         <img src="self.jpeg" alt="Hashim Khan" class="profile-pic-modal animate-scale-in" style="">
     </div>
 
+    <!-- Access Log Modal -->
+    <div id="accessLogModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden transition-opacity duration-300" style="opacity:0;">
+        <div class="bg-white rounded-lg shadow-lg p-8 max-w-2xl w-full relative">
+            <button id="closeAccessLogModal" class="absolute top-4 right-4 bg-gray-200 rounded-full p-2 focus:outline-none"><i class="fas fa-times text-xl text-gray-800"></i></button>
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">Access Log</h2>
+            <div id="accessLogContent" class="overflow-x-auto max-h-96">
+                <!-- Log entries will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3754737230953398"
+     crossorigin="anonymous"></script>
+
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1193,6 +1211,110 @@
         });
         window.addEventListener('popstate', (e) => {
             if (modalOpen) closeProfileModalFunc(false);
+        });
+
+        // --- Profile Visits Count & Access Log ---
+        const visitsKey = 'profileVisits';
+        const logsKey = 'accessLogs';
+        const profileVisitsCount = document.getElementById('profileVisitsCount');
+
+        async function getGeoInfo() {
+            try {
+                // Use a free geolocation API (ipapi.co)
+                const res = await fetch('https://ipapi.co/json/');
+                if (!res.ok) throw new Error('Geo API failed');
+                return await res.json();
+            } catch (e) {
+                return { city: 'Unknown', country_name: 'Unknown' };
+            }
+        }
+
+        function getPlatform() {
+            return navigator.platform || navigator.userAgent;
+        }
+
+        function getNow() {
+            const now = new Date();
+            return {
+                date: now.toLocaleDateString(),
+                time: now.toLocaleTimeString()
+            };
+        }
+
+        async function handleProfileVisit() {
+            let visits = parseInt(localStorage.getItem(visitsKey) || '0', 10);
+            let logs = [];
+            try { logs = JSON.parse(localStorage.getItem(logsKey)) || []; } catch { logs = []; }
+
+            // Check if this user has visited before (sessionStorage for demo)
+            if (!sessionStorage.getItem('visited')) {
+                visits += 1;
+                localStorage.setItem(visitsKey, visits);
+                sessionStorage.setItem('visited', '1');
+
+                // Get geo info and log
+                const geo = await getGeoInfo();
+                const platform = getPlatform();
+                const { date, time } = getNow();
+                logs.push({
+                    city: geo.city || 'Unknown',
+                    country: geo.country_name || 'Unknown',
+                    platform,
+                    date,
+                    time
+                });
+                localStorage.setItem(logsKey, JSON.stringify(logs));
+            }
+            profileVisitsCount.textContent = visits;
+        }
+        handleProfileVisit();
+
+        // --- Secret Code Detection ---
+        const secretCode = 'secretcode123';
+        let keyBuffer = '';
+        document.addEventListener('keydown', (e) => {
+            if (e.key.length === 1) {
+                keyBuffer += e.key;
+                if (keyBuffer.length > secretCode.length) {
+                    keyBuffer = keyBuffer.slice(-secretCode.length);
+                }
+                if (keyBuffer === secretCode) {
+                    openAccessLogModal();
+                }
+            }
+        });
+
+        // --- Access Log Modal Logic ---
+        const accessLogModal = document.getElementById('accessLogModal');
+        const closeAccessLogModal = document.getElementById('closeAccessLogModal');
+        const accessLogContent = document.getElementById('accessLogContent');
+        function openAccessLogModal() {
+            // Populate log
+            let logs = [];
+            try { logs = JSON.parse(localStorage.getItem(logsKey)) || []; } catch { logs = []; }
+            if (logs.length === 0) {
+                accessLogContent.innerHTML = '<p class="text-gray-600 text-center">No access logs found.</p>';
+            } else {
+                let html = '<table class="min-w-full text-sm text-left"><thead><tr><th class="px-2 py-1 border-b">#</th><th class="px-2 py-1 border-b">City</th><th class="px-2 py-1 border-b">Country</th><th class="px-2 py-1 border-b">Platform</th><th class="px-2 py-1 border-b">Date</th><th class="px-2 py-1 border-b">Time</th></tr></thead><tbody>';
+                logs.forEach((log, i) => {
+                    html += `<tr><td class="px-2 py-1 border-b">${i+1}</td><td class="px-2 py-1 border-b">${log.city}</td><td class="px-2 py-1 border-b">${log.country}</td><td class="px-2 py-1 border-b">${log.platform}</td><td class="px-2 py-1 border-b">${log.date}</td><td class="px-2 py-1 border-b">${log.time}</td></tr>`;
+                });
+                html += '</tbody></table>';
+                accessLogContent.innerHTML = html;
+            }
+            accessLogModal.classList.remove('hidden');
+            setTimeout(() => { accessLogModal.style.opacity = '1'; }, 10);
+        }
+        function closeAccessLogModalFunc() {
+            accessLogModal.style.opacity = '0';
+            setTimeout(() => { accessLogModal.classList.add('hidden'); }, 300);
+        }
+        closeAccessLogModal.addEventListener('click', closeAccessLogModalFunc);
+        accessLogModal.addEventListener('click', (e) => {
+            if (e.target === accessLogModal) closeAccessLogModalFunc();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (accessLogModal.style.opacity === '1' && (e.key === 'Escape' || e.key === 'Esc')) closeAccessLogModalFunc();
         });
     </script>
 </body>
